@@ -1,6 +1,14 @@
+from os import get_inheritable
 import pandas as pd
+import folium
+from folium import Choropleth, Circle, Marker, Icon, Map
+from folium.plugins import HeatMap, MarkerCluster
+import streamlit as st
+from streamlit_folium import folium_static
 
-#data = pd.read_csv("data/user_limpio.csv")
+
+
+datitos_coord = pd.read_csv("data/user_coord.csv")
 #data.drop("Unnamed: 0", axis=1, inplace=True)
 
 #-------------------------------------------------
@@ -14,12 +22,16 @@ def profiles_chooice():
     sn = ["Innovator", "Traveler", "Posh"]
     return sn
 
-def copia_sn_bool(resp):#pseudocodigo Sonia revisar importacion de csv en streamlit
+def copia_sn_bool(resp):
     '''
     This function transforms the answer into boolean
     '''
     data = pd.read_csv(f"data/{resp}.csv")
     return data
+
+def cargadataframe(resp):
+    data_pk = pd.read_pickle(f"data/{resp}_pk.pkl")
+    return data_pk
 
 def level():
     '''
@@ -32,12 +44,24 @@ def ciudades_match(dataframe,educ,tol,sun):
     '''
     This function give us the cities that match with the profile
     '''
-    rslt_df = dataframe[(dataframe['Escala_de_Educacion'] == f"{educ}") &
-            (dataframe['Escala_de_Tolerancia'] == f"{tol}") & 
-            (dataframe['Escala_de_Sunshine'] == f"{sun}")]
-    
-    Cities_match = rslt_df
-    return Cities_match
+    try:
+        rslt_df = dataframe[(dataframe['Escala_de_Educacion'] == f"{educ}") &
+                (dataframe['Escala_de_Tolerancia'] == f"{tol}") & 
+                (dataframe['Escala_de_Sunshine'] == f"{sun}")]
+        return rslt_df
+    except:
+        return ("Sorry, we have not found any cities matching your search. Try changing some parameters.")
 
-def mapa():
+def mapa(resp):
+    row_city = datitos_coord[(datitos_coord['Cities'] == f"{resp}")]
+    print("mi print",row_city.iloc[0]["Coordenadas"])
+    latlong = row_city.iloc[0]["Coordenadas"]
+    fig = folium.Map(location=(latlong), zoom_start=15)
+    return fig
+
+def info_city():
     pass
+
+
+    
+        

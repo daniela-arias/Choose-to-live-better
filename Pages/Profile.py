@@ -1,8 +1,11 @@
 import streamlit as st
-import pickle
 import pandas as pd
 from PIL import Image
 import src.manage_data as dat
+import folium
+from folium import Choropleth, Circle, Marker, Icon, Map
+from folium.plugins import HeatMap, MarkerCluster
+from streamlit_folium import folium_static
 
 def app():
 
@@ -39,9 +42,23 @@ def app():
     #Empezamos a usar las respuestas del usuario
     mydf = dat.copia_sn_bool(Prof)
     final_match_df = dat.ciudades_match(mydf,Educ,Tol,Sun)
-    Cities = st.dataframe(final_match_df.Cities)
 
-    st.write("These are the cities that best suit you:")
-    st.write(f"{Cities}")
+    st.write('''
+        These are the cities that best suit you:
+    ''')
+    try:
+        Cities = st.dataframe(final_match_df.Cities)
+    except:
+        st.write("""
+        Sorry, we have not found any cities matching your search. Try changing some parameters.
+        """)
 
-    st.dataframe(final_match_df)
+    Final_City = st.selectbox("""
+    Learn more about each city.
+    """, list(final_match_df.Cities.unique()))
+
+    folium_static(dat.mapa(Final_City))
+    
+    #st.write(f"{Final_City}")    
+
+    #st.dataframe(final_match_df)
