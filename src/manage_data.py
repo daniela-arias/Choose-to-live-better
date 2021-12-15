@@ -14,16 +14,12 @@ def profiles_chooice():
     sn = ["Innovator", "Traveler", "Posh"]
     return sn
 
-def sn_bool(resp):
+def copia_sn_bool(resp):#pseudocodigo Sonia revisar importacion de csv en streamlit
     '''
     This function transforms the answer into boolean
     '''
-    if resp == "Innovator":
-        return 0
-    if resp == "Traveler":
-        return 1
-    if resp == "Posh":
-        return 2
+    data = pd.read_csv(f"data/{resp}.csv")
+    return data
 
 def level():
     '''
@@ -32,13 +28,16 @@ def level():
     lv = ["Alto", "Medio", "Bajo"]
     return lv
 
-def level_bool(resp):
+def ciudades_match(dataframe,educ,tol,sun):
     '''
-    This function transforms yes or no into boolean
+    This function give us the cities that match with the profile
     '''
-    if resp == "Alto":
-        return 0
-    if resp == "Medio":
-        return 1
-    if resp == "Bajo":
-        return 2
+    rslt_df = dataframe[(dataframe['Escala_de_Educacion'] == f"{educ}") &
+            (dataframe['Escala_de_Tolerancia'] == f"{tol}") & 
+            (dataframe['Escala_de_Sunshine'] == f"{sun}")]
+    
+    Cities_match = rslt_df
+    return Cities_match
+
+def mapa():
+    pass

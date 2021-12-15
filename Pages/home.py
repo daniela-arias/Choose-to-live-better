@@ -3,18 +3,17 @@ from PIL import Image
 #import streamlit.components.v1 as components
 #import codecs
 #gif = 'https://media.giphy.com/media/lXC2gmHf2ypUs/giphy.gif'
-#gif_traveler = 'https://giphy.com/gifs/boy-adventure-14wXMGbHjXK2k0'
-#gif_posh = 'https://giphy.com/gifs/thismorning-hello-this-morning-josie-gibson-YqzBnP1DqgzJqXysb1'
-#gif_Innovator = 
+
 def app():
 
     st.write("""
     Choosing where to live in this world full of options is no easy task, 
     so we want to help you find the city that best suits you.
     """)
-    portada = Image.open("images/travel-world.jpeg")
-    #portada = Image.open(gif)
-    st.image(portada, use_column_width=True)
+    st.image(
+            "https://media.giphy.com/media/lXC2gmHf2ypUs/giphy.gif", 
+            width=500,
+        ),
 
     st.write("""
     # First of all, we must determine which profile fits you best. 
