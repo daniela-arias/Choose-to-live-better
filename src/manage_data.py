@@ -7,9 +7,9 @@ import streamlit as st
 from streamlit_folium import folium_static
 
 
-
 datitos_coord = pd.read_csv("data/user_coord.csv")
-#data.drop("Unnamed: 0", axis=1, inplace=True)
+user_data = pd.read_csv("Data/Data_clean_user.csv")
+user_data.drop("Unnamed: 0", axis=1, inplace=True)
 
 #-------------------------------------------------
 #Profile
@@ -53,6 +53,9 @@ def ciudades_match(dataframe,educ,tol,sun):
         return ("Sorry, we have not found any cities matching your search. Try changing some parameters.")
 
 def mapa_city(resp):
+    '''
+    This function shows the map of the selected city. 
+    '''
     row_city = datitos_coord[(datitos_coord['Cities'] == f"{resp}")]
     lat = row_city["lat"]
     long = row_city["long"]
@@ -60,11 +63,47 @@ def mapa_city(resp):
     fig = folium.Map(location=(lat,long), zoom_start=15)
     return fig
 
-#def info_city(resp):
-    #row_city_description = datitos_coord[(datitos_coord['Cities'] == f"{resp}")]
-    #st.write(type("mi print",row_city.iloc[0]["Coordenadas"])
-    #st.write()
-    #pass
+def info_city(resp):
+    row_info = user_data[(user_data["Cities"] == f"{resp}")]
+    st.subheader("The city")
+    st.write(row_info['Cities'])
+    st.write(row_info['Description'])
+    st.write(row_info['Poblacion'])
+    st.write(row_info['Climate'])
+    st.subheader("The economy")
+    st.write(row_info['Growth_percentage'])
+    st.write(row_info['GDP_per_capita'])
+    st.write(row_info['Unemployment_percentage'])
+    st.write(row_info['VAT_Sales_Tax'])
+    st.write(row_info['Currency_for_urban_area'])
+    st.subheader("Tolerance")
+    st.write(row_info['Homosexuality_acceptance'])
+    st.write(row_info['LGBT_adoption_rights'])
+    st.write(row_info['LGBT_homosexuality_rights'])
+    st.write(row_info['LGBT_marriage_rights'])
+    st.subheader("Culture")
+    st.write(row_info['Art_galleries'])
+    st.write(row_info['Concert_venues'])
+    st.write(row_info['Museums'])
+    st.write(row_info['Sport_venues'])
+    st.subheader("Connectivity")
+    st.write(row_info['Monthly_Fitness_Club_Membership'])
+    st.write(row_info['Beer'])
+    st.write(row_info['Lunch'])
+    st.subheader("Daily cost of living")
+    st.write(row_info['Airport_hub'])
+    st.write(row_info['Intercity_train_connectivity'])
+    st.subheader("Safety")
+    st.write(row_info['Gun_related_deaths'])
+    st.write(row_info['Guns_per_residents'])
+    st.subheader("Education")
+    st.write(row_info['Pisa_ranking'])
+    st.write(row_info['Best_university'])
+    st.subheader("Housing")
+    st.write(row_info['Large_apartment'])
+    st.write(row_info['Medium_apartment'])
+    st.write(row_info['Small_apartment'])
+    return row_info
 
 
     

@@ -19,6 +19,4 @@ numpy
 
 pandas
 
-plotly
-
 streamlit

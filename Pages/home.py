@@ -6,10 +6,13 @@ from PIL import Image
 
 def app():
 
+    st.title('Choose to live better...where do you fit in the world?')
+
     st.write("""
     Choosing where to live in this world full of options is no easy task, 
     so we want to help you find the city that best suits you.
     """)
+    
     st.image(
             "https://media.giphy.com/media/lXC2gmHf2ypUs/giphy.gif", 
             width=500,
