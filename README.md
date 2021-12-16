@@ -1,7 +1,7 @@
 # Choose-to-live-better
 
 Have you ever wondered what it would be like to live in a new country? Do you not know which country would be right for you? 
-You can see the presentation of this work by clicking [here]. (https://www.canva.com/design/DAEysfm50eY/g8Desl76rxgndJGAzwrPSQ/view?utm_content=DAEysfm50eY&utm_campaign=designshare&utm_medium=link&utm_source=shareyourdesignpanel)
+You can see the presentation of this work by clicking [here](https://www.canva.com/design/DAEysfm50eY/g8Desl76rxgndJGAzwrPSQ/view?utm_content=DAEysfm50eY&utm_campaign=designshare&utm_medium=link&utm_source=shareyourdesignpanel)
 
 ## Goal
 
