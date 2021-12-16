@@ -1,1 +1,1 @@
-web: sh setup.sh && tun stramlit.py
+web: sh setup.sh && tun streamlit.py
