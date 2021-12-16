@@ -14,10 +14,56 @@ Clean-up the dataset.
 Create a streamlit app.
 Deploy streamlit app with heroku.
 
+## Languages
+
+Python
+
+## Programs
+
+Jupyter Notebook
+
+Visual Code
+
+Streamlit
+
+Heroku
+
+## Requirements
+
+beautifulsoup4==4.10.0
+
+folium==0.12.1.post1
+
+pandas==1.3.4
+
+pandas_profiling==3.1.0
+
+Pillow==8.4.0
+
+requests==2.26.0
+
+streamlit_folium==0.4.0
+
+streamlit_pandas_profiling==0.1.3
+
 ## Libraries used
 
-numpy
+Pandas
 
-pandas
+Numpy
 
-streamlit
+Beautifulsoup
+
+Selenium
+
+Seaborn
+
+Regex
+
+Streamlit
+
+Plotly
+
+Folium
+
+Pillow
