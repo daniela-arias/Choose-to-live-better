@@ -57,8 +57,8 @@ def app():
     Learn more about each city.
     """, list(final_match_df.Cities.unique()))
 
-    folium_static(dat.mapa(Final_City))
-    
+    folium_static(dat.mapa_city(Final_City))
+
     #st.write(f"{Final_City}")    
 
     #st.dataframe(final_match_df)

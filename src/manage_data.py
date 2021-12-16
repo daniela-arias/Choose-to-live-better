@@ -52,15 +52,19 @@ def ciudades_match(dataframe,educ,tol,sun):
     except:
         return ("Sorry, we have not found any cities matching your search. Try changing some parameters.")
 
-def mapa(resp):
+def mapa_city(resp):
     row_city = datitos_coord[(datitos_coord['Cities'] == f"{resp}")]
-    print("mi print",row_city.iloc[0]["Coordenadas"])
-    latlong = row_city.iloc[0]["Coordenadas"]
-    fig = folium.Map(location=(latlong), zoom_start=15)
+    lat = row_city["lat"]
+    long = row_city["long"]
+    #latlong = row_city["Coordenadas"][0]
+    fig = folium.Map(location=(lat,long), zoom_start=15)
     return fig
 
-def info_city():
-    pass
+#def info_city(resp):
+    #row_city_description = datitos_coord[(datitos_coord['Cities'] == f"{resp}")]
+    #st.write(type("mi print",row_city.iloc[0]["Coordenadas"])
+    #st.write()
+    #pass
 
 
     
