@@ -10,8 +10,17 @@ The objective of this project is to help you choose the city that best suits you
 ## Steps
 
 Get a database with the information, using Web Scraping.
+
 Clean-up the dataset.
+
+Implementation of Unsupervised Learning to determine
+clusters (Profiles)
+
+Determine characteristics of Profiles through statistical
+visualization
+
 Create a streamlit app.
+
 Deploy streamlit app with heroku.
 
 ## Languages
